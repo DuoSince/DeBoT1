@@ -617,7 +617,7 @@ module.exports = {
                         } finally {
                             text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Yah,si Beban Masuk Grup @user').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
                                 (chat.sBye || this.bye || conn.bye || 'Sip, Beban Berkurang @user!')).replace('@user', '@' + user.split('@')[0])
-                                this.send2ButtonImg(id, pp, text, "𝗔𝗿𝘂𝗹𝗹𝗕𝗼𝘁𝘇", "Script Bot", ".sc", "Tampilan Menu", ".menu", fake, { contextInfo: { externalAdReply :{
+                                this.send2ButtonImg(id, pp, text, "Queenzy", "Script Bot", ".sc", "Tampilan Menu", ".menu", fake, { contextInfo: { externalAdReply :{
                                 showAdAttribution: true,
                                 mediaUrl: data.sc,
                                 mediaType: 2,
@@ -744,7 +744,7 @@ function pickRandom(list) {
   return list[Math.floor(Math.random() * list.length)]
 }
 
-global.thumb = 'https://telegra.ph/file/61f2d6d9694b49a2ce7aa.jpg'
+global.thumb = 'https://telegra.ph/file/4f4ad87466958814ef22b.jpg'
 
 global.flaaa = [
  'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=water-logo&script=water-logo&fontsize=90&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextColor=%23000&shadowGlowColor=%23000&backgroundColor=%23000&text=',
