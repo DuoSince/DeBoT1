@@ -1,42 +1,23 @@
-let yts = require('yt-search')
 let fetch = require('node-fetch')
-const { servers, yta, ytv } = require('../lib/y2mate')
-let handler = async (m, { conn, command, usedPrefix, text, isPrems, isOwner }) => {
-  if (!text) throw `uhm.. cari apa?\n\ncontoh:\n${usedPrefix + command} i see your monster`
-  let chat = global.db.data.chats[m.chat]
-  let results = await yts(text)
-  let vid = results.all.find(video => video.seconds < 3600)
-  if (!vid) throw 'Video/Audio Tidak ditemukan'
-  let isVideo = /2$/.test(command)
-  let yt = false
-  let usedServer = servers[0]
-  for (let i in servers) {
-    let server = servers[i]
-    try {
-      yt = await yta(vid.url, server)
-      yt2 = await ytv(vid.url, server)
-      usedServer = server
-      break
-    } catch (e) {
-      m.reply(`Server ${server} error!${servers.length >= i + 1 ? '' : '\nmencoba server lain...'}`)
-    }
-  }
-  if (yt === false) throw 'semua server gagal'
-  if (yt2 === false) throw 'semua server gagal'
-  let { dl_link, thumb, title, filesize, filesizeF } = yt
-  await conn.send3ButtonLoc(m.chat, await conn.resize(thumb, 280, 210), `
-*Judul:* ${title}
-*Ukuran File Audio:* ${filesizeF}
-*Ukuran File Video:* ${yt2.filesizeF}
-*Server y2mate:* ${usedServer}
- `.trim(), wm, `🎵 AUDIO ${filesizeF}`, usedPrefix + `yta ${vid.url}`, `📽 VIDEO ${yt2.filesizeF}`, usedPrefix + `yt ${vid.url}`, `🔍 SEARCH`, `.yts ${vid.url}`, m)
-}
-handler.help = ['play'].map(v => v + ' <pencarian>')
-handler.tags = ['downloader']
-handler.command = /^(dj|musik|song|lagu|p(lay)?)$/i
+let handler = async(m, { conn, text }) => {
+    if (!text) throw 'masukin judulnya!'
+    let yt = await fetch(`https://zenzapis.xyz/downloader/y2mate?apikey=SyaizZ&query=${text}`)
+    let json = await yt.json()
+    if (!json.status) throw json
+    let js = json.result
+    let txt = `
+[ *PLAY MUSIC* ]
+*title:* ${js.title}
+*size:* ${js.sizeAudio}
+link ${js.link}
 
-handler.exp = 3
-handler.limit = false
-handler.register = false
+_*sabar audio akan dikirim*_
+`
+    conn.sendFile(m.chat, js.thumb, '', txt, m)
+    conn.sendFile(m.chat, json.result.getAudio, '', '', m)
+}
+handler.help = ['play']
+handler.tags = ['downloader']
+handler.command = /^(ytp|play)$/i
 
 module.exports = handler
