@@ -1,7 +1,7 @@
 const moment = require('moment-timezone')
 let handler = m => m
 handler.all = async function (m) {
-	let pp = 'https://telegra.ph/file/5ecadedfb003151914629.jpg'
+	let pp = 'https://telegra.ph/file/4f4ad87466958814ef22b.jpg'
 	try {
 		pp = await this.profilePictureUrl(m.sender, 'image')
 	} catch (e) {
@@ -10,9 +10,9 @@ handler.all = async function (m) {
         global.fetch = require('node-fetch')
         const _uptime = process.uptime() * 1000
         const u = await conn.clockString(_uptime)
-        global.run = '𝐀𝐤𝐭𝐢𝐟 𝐒𝐞𝐥𝐚𝐦𝐚' + ' ' + u
+        global.run = 'Bot On Selama' + ' ' + u
         global.ucapan = ucapan()
-        global.col = 'https://telegra.ph/file/5ecadedfb003151914629.jpg'
+        global.col = 'https://telegra.ph/file/4f4ad87466958814ef22b.jpg'
         global.time = require('moment-timezone').tz('Asia/Jakarta').format('HH:mm:ss')
 		global.users = db.data.users[m.sender]
 		global.chats = db.data.chats[m.chat]
@@ -37,7 +37,7 @@ handler.all = async function (m) {
 	 key: { 
           fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(m.chat ? 
-	 { remoteJid: "6282331033919-1625305606@g.us" } : {}) 
+	 { remoteJid: "6285609524655-1625305606@g.us" } : {}) 
                 },
 	 message: { 
 		"audioMessage": {
@@ -52,7 +52,7 @@ handler.all = async function (m) {
 	 key: { 
           fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(m.chat ? 
-	 { remoteJid: "6282331033919-1625305606@g.us" } : {}) 
+	 { remoteJid: "6285609524655-1625305606@g.us" } : {}) 
                 },
 	 message: { 
 		"extendedTextMessage": {
@@ -68,13 +68,13 @@ handler.all = async function (m) {
 	 { fromMe: false,
 	 participant: `0@s.whatsapp.net`, ...(m.chat  ? 
 	 { remoteJid: "status@broadcast" } : {}) },
-	 message: { "liveLocationMessage": { "caption":"by : Arull","h": `${wm}`, 'jpegThumbnail': fs.readFileSync('./src/logo.jpg')}}
+	 message: { "liveLocationMessage": { "caption":"Author: DevXyZ","h": `${wm}`, 'jpegThumbnail': fs.readFileSync('./src/logo.jpg')}}
 	}
         
             const ftoko = {
 key: {
 			fromMe: false,
-			participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "6282331033919@s.whatsapp.net" } : {})
+			participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "6285609524655@s.whatsapp.net" } : {})
 		},
 		message: {
 			"productMessage": {
@@ -115,7 +115,7 @@ key: {
 	},
 	"message": {
 		"groupInviteMessage": {
-			"groupJid": "6282331033919-1625305606@g.us",
+			"groupJid": "6285609524655-1625305606@g.us",
 			"inviteCode": "null",
 			"groupName": "☬𝚁𝚊𝚡𝚌𝚎𝚄1�71ￄ1�77 ༼༽𝚡 𝚎𝚟𝚒𝚕 𝐎𝔣ᶄ1�71ￄ1�77 ◄1�71ￄ1�77", 
             "caption": wm, 
@@ -128,7 +128,7 @@ key: {
 	 key: { 
           fromMe: false,
 	      participant: `0@s.whatsapp.net`, ...(m.chat ? 
-	 { remoteJid: "6282331033919-1625305606@g.us" } : {}) 
+	 { remoteJid: "6285609524655-1625305606@g.us" } : {}) 
                 },
 	 message: { 
                  "videoMessage": { 
