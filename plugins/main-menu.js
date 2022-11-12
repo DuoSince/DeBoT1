@@ -285,7 +285,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       buttonText: "Klik Disini Tod",
       sections
     }
-    return conn.sendMessage(m.chat, listMessage, { quoted: fake, mentions: await conn.parseMention(judul)})
+    return conn.sendMessage(m.chat, listMessage, { quoted: fake, mentions: await conn.parseMention(judul), contextInfo: { forwardingScore: 99999, isForwarded: true }})
     
     }
 
