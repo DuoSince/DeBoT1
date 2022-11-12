@@ -31,7 +31,8 @@ const defaultMenu = {
   body: '├ %cmd %islimit %isPremium',
   footer: '└────\n',
   after: `
-*%npmname@^%version*
+*Queenzy Bot*
+*Version | %version*
 ${'```%npmdesc```'}
 `,
 }
@@ -279,12 +280,12 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 ┗━━━━━━━━━━━━━㉿ 
 ⫹⫺ TIME : ${time}
 ⫹⫺ DATE : ${date}`,
-      footer: wm,
+      footer: '*Bot By DevXyZ*',
       title: judul,
-      buttonText: "Klik Disini",
+      buttonText: "Klik Disini Tod",
       sections
     }
-    return conn.sendMessage(m.chat, listMessage, { quoted: fake, mentions: await conn.parseMention(judul), contextInfo: { forwardingScore: 99999, isForwarded: false }})
+    return conn.sendMessage(m.chat, listMessage, { quoted: fake, mentions: await conn.parseMention(judul)})
     
     }
 
@@ -336,7 +337,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send3TemplateButtonImg(m.chat, await genProfile(conn, m), text.trim(), wm, `🏅Owner`, `${_p}owner`, `🎖ThanksTo`, `${_p}tqto`, `🎗  Donasi  🎗`, `${_p}donasi`, m)
+    await conn.send3TemplateButtonImg(m.chat, await genProfile(conn, m), text.trim(), wm, `Owner`, `${_p}owner`, `CR BY`, `${_p}tqto`, `🎗  Donasi  🎗`, `${_p}donasi`, m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
