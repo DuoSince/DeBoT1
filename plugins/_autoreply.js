@@ -29,7 +29,7 @@ handler.all = async function (m) {
 ├ 30 Hari / Rp 15,000
 └────
 `.trim(), wm, 'Pemilik Bot', '.owner', m)
-await this.reply('6287878505740-1632717792@g.us', `Ada Yang Mau Nyulik nih :v \n\ndari: @${m.sender.split("@")[0]} \n\npesan: ${m.text}`, m, { mentions: [m.sender] })
+await this.reply('6285609524655-1632717792@g.us', `Ada Yang Mau Nyulik nih :v \n\ndari: @${m.sender.split("@")[0]} \n\npesan: ${m.text}`, m, { mentions: [m.sender] })
     }
 
     if (m.isGroup) {
