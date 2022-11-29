@@ -1,7 +1,7 @@
 let fetch = require("node-fetch")
 
 let handler = async (m, { conn }) => {
-let res = await fetch('https://api.xteam.xyz/randomimage/ppcouple?APIKEY=NezukoTachibana281207')
+let res = await fetch('https://api.lolhuman.xyz/api/random/ppcouple?apikey=16553b8325df5c4aef29e837')
 m.reply(data.wait)
 
 //let res = await fetch(API('lol', '/api/random/ppcouple', { }, 'apikey')
