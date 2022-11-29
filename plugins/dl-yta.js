@@ -9,7 +9,8 @@ let handler = async(m, { conn, text }) => {
 [ *PLAY MUSIC* ]
 *title:* ${js.title}
 *size:* ${js.sizeAudio}
-link ${js.link}
+*like:* ${js.like}
+*link:* ${js.link}
 _*sabar audio akan dikirim*_
 `
     conn.sendFile(m.chat, js.thumb, '', txt, m)
