@@ -17,6 +17,6 @@ _*sabar audio akan dikirim*_
 }
 handler.help = ['play']
 handler.tags = ['downloader']
-handler.command = /^(ytp|play)$/i
+handler.command = /^(yta|ytmp3)$/i
 
 module.exports = handler
