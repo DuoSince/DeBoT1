@@ -15,7 +15,7 @@ _*sabar audio akan dikirim*_
     conn.sendFile(m.chat, js.thumb, '', txt, m)
     conn.sendFile(m.chat, json.result.getAudio, '', '', m)
 }
-handler.help = ['play']
+handler.help = ['yta']
 handler.tags = ['downloader']
 handler.command = /^(yta|ytmp3)$/i
 
