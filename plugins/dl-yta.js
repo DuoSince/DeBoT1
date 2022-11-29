@@ -1,42 +1,22 @@
-let limit = 30
 let fetch = require('node-fetch')
-const { servers, yta } = require('../lib/y2mate')
-let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
-  if (!args || !args[0]) throw `contoh:\n${usedPrefix + command} https://www.youtube.com/watch?v=yxDdj_G9uRY`
-  let chat = db.data.chats[m.chat]
-  let server = (args[1] || servers[0]).toLowerCase()
-  let { dl_link, thumb, title, filesize, filesizeF } = await yta(args[0], servers.includes(server) ? server : servers[0])
-  let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
-  m.reply(isLimit ? `Ukuran File: ${filesizeF}\nUkuran file diatas ${limit} MB, download sendiri: ${dl_link}` : data.wait)
-  if (!isLimit) conn.sendMedia(m.chat, dl_link, m, {
-    asDocument: chat.useDocument, mimetype: 'audio/mp4', ptt: false, contextInfo: {
-        externalAdReply: {
-            showAdAttribution: true,
-            mediaUrl: `${args}`,
-            title: 'Nih Kak Audionya', 
-            body: wm,
-            description: wm,
-            mediaType: 2,
-          thumbnail: await (await fetch(thumb)).buffer(),
-         mediaUrl: `${args}`
-        }
-     }
-  })
+let handler = async(m, { conn, text }) => {
+    if (!text) throw 'masukin judulnya!'
+    let yt = await fetch(`https://api.lolhuman.xyz/api/ytaudio?apikey=16553b8325df5c4aef29e837&url=${text}`)
+    let json = await yt.json()
+    if (!json.status) throw json
+    let js = json.result
+    let txt = `
+[ *PLAY MUSIC* ]
+*title:* ${js.title}
+*size:* ${js.sizeAudio}
+link ${js.link}
+_*sabar audio akan dikirim*_
+`
+    conn.sendFile(m.chat, js.thumb, '', txt, m)
+    conn.sendFile(m.chat, json.result.getAudio, '', '', m)
 }
-handler.help = ['mp3', 'a'].map(v => 'yt' + v + ` <url>`)
+handler.help = ['play']
 handler.tags = ['downloader']
-handler.command = /^yt(a|mp3)$/i
-handler.owner = false
-handler.mods = false
-handler.premium = false
-handler.group = false
-handler.private = false
-
-handler.admin = false
-handler.botAdmin = false
-
-handler.fail = null
-handler.exp = 0
-handler.limit = true
+handler.command = /^(ytp|play)$/i
 
 module.exports = handler
