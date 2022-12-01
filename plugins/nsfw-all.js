@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 let { age } = db.data.users[m.sender]
-if (!db.data.settings[conn.user.jid].nsfw) throw `Fitur ini tidak aktif`
+if (db.data.settings[conn.user.jid].nsfw) throw `Fitur ini tidak aktif`
 if (age <17) throw conn.reply(m.chat, 'Lu masih di bawah umur jangan dulu deh', m) 
 if (command == 'ahegao') {
 let res = await (await fetch(`https://raw.githubusercontent.com/KazukoGans/database/main/nsfw/ahegao.json`)).json()
