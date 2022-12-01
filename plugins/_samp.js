@@ -2,7 +2,7 @@
 let fetch = require('node-fetch')
 let handler = async(m, { conn, text }) => {
     if (!text) throw 'masukin judulnya!'
-    let yt = await fetch(`http://anabellebot.online/API/sampquery?ip=${text}&port=${text}`)
+    let yt = await fetch(`http://anabellebot.online/API/sampquery?ip=149.18.62.162&port=7777`)
     let json = await yt.json()
     if (!json.status) throw json
     let js = json.result
